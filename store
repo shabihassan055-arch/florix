@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Congratulations!</title>
+<style>
+    body {
+        background: url('logo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    #popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255,255,255,0.9);
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+        z-index: 1000;
+        display: none;
+        width: 80%;
+        max-width: 400px;
+    }
+    #popup h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+    #popup p {
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div id="popup">
+    <h2>🎉 Congratulations! 🎉</h2>
+    <p>You got <b>30% off</b> your first order.<br>
+    Valid for your next order within <b>30 days</b>!</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    function shootConfetti() {
+        confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+
+    window.onload = () => {
+        shootConfetti();
+        document.getElementById("popup").style.display = "block";
+    };
+</script>
+
+</body>
+</html>
